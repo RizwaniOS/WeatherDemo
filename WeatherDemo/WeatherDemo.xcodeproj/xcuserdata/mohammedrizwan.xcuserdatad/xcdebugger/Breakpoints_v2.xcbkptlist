@@ -14,8 +14,8 @@
             filePath = "WeatherDemo/WeatherDemo Services/Application Modules/Home Module/Controller/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "observeViewModel()"
             landmarkType = "7">
          </BreakpointContent>
