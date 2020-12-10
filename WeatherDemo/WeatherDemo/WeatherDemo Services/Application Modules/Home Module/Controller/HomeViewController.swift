@@ -10,7 +10,8 @@ import UIKit
 import CoreLocation
 
 class HomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController {
     
     var temperatureObserver : NSObjectProtocol?
     var cityNameObserver : NSObjectProtocol?
+    var imageNameObserver : NSObjectProtocol?
     lazy var homeViewModel : HomeViewModel? = HomeViewModel()
     
     override func viewDidLoad() {
@@ -51,6 +53,12 @@ class HomeViewController: UIViewController {
         self.cityNameObserver = homeViewModel?.observe(\HomeViewModel.cityNameValue,options: [.initial, .new], changeHandler: { (_, change) in
             DispatchQueue.main.async {
                 self.cityLabel.text = change.newValue ?? ""
+            }
+        })
+        
+        self.imageNameObserver = homeViewModel?.observe(\HomeViewModel.imageName,options: [.initial, .new], changeHandler: { (_, change) in
+            DispatchQueue.main.async {
+                self.weatherIcon.image = UIImage(named: change.newValue ?? "")
             }
         })
     }
